@@ -51,7 +51,7 @@ app.route("/signup")
     res.render("sign_up",{email:[]});
 })
 
-//After registeing
+//After registering
 .post(function(req, res){
 
     bcrypt.hash(req.body.password, saltRounds, function(err, hash){
