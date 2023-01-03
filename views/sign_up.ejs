@@ -1,0 +1,62 @@
+<%- include('partials/header') -%>
+
+<section class="vh-100">
+    <div class="container py-5 h-100">
+      <div class="row d-flex align-items-center justify-content-center h-100">
+        <div class="col-md-8 col-lg-7 col-xl-6">
+          <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.svg"
+            class="img-fluid" alt="Phone image">
+        </div>
+        <div class="col-md-7 col-lg-5 col-xl-5 offset-xl-1">
+          <form action="/signup" method="post">
+
+            <!-- Name -->
+            <div class="form-outline mb-4">
+                <label class="form-label" for="name">Name</label>
+                <input type="text" id="name" name="name" class="form-control form-control-lg" value="<%=(typeof inputData!='undefined')? inputData.name:''%>" required />   
+                <p style="color: red;"><%=(typeof errors!='undefined' && typeof errors.name!='undefined' )? errors.name.msg:''%></p>           
+            </div>
+
+            <!-- Gender -->
+            <div class="form-outline mb-4">
+                <label class="form-label" for="gender">Gender</label>
+                <select id="gender" name="genders" class="form-control form-control-lg" required>
+                    <option value="default"></option>
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                    <option value="other">Other</option>
+                  </select>
+                
+              
+            </div>
+
+            <!-- Mobile Numebr -->
+            <div class="form-outline mb-4">
+                <label class="form-label" for="phone">Phone Number</label>
+                <input type="tel" id="phone" name="phone" pattern="[6789][0-9]{9}" class="form-control form-control-lg" required />
+                <!-- <span id="valid-msg" style="display: none;">✓ Valid</span>
+                <span id="error-msg" style="display: none;"></span> -->
+            </div>
+
+            <!-- Email address -->
+            <div class="form-outline mb-4">
+                <label class="form-label" for="email">Email address</label>
+                <input type="email" id="email" name="email" pattern="^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$" class="form-control form-control-lg" value="<%= email %> " required/>
+            </div>
+  
+            <!-- Password input -->
+            <div class="form-outline mb-4">
+                <label class="form-label" for="password">Password</label>
+                <input type="password" id="password" name="password" class="form-control form-control-lg" required/>  
+            </div>
+
+            <!-- Submit Button -->
+            <button type="submit" class="btn btn-primary btn-lg btn-block" onclick="wrong_pass_alert()">Enter into 10A</button>
+            
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <%- include('partials/footer') -%>
